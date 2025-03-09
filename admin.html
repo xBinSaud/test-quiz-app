@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.cloudinary.com; connect-src 'self' https://api.cloudinary.com https://*.cloudinary.com;">
+    <title>Admin Panel - Quiz Application</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Quiz Admin Panel</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="quizzes.html">Quizzes</a></li>
+                <li><a href="admin.html">Admin Panel</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="admin-panel">
+            <h2>Create New Quiz Question</h2>
+            <form id="quizForm">
+                <div class="form-group">
+                    <label for="questionText">Question Text</label>
+                    <input type="text" id="questionText" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="imageInput">Question Image (Optional)</label>
+                    <input type="file" id="imageInput" class="form-control" accept="image/*">
+                    <div id="imagePreviewContainer" style="display: none;">
+                        <img id="imagePreview" class="image-preview">
+                        <p id="uploadStatus"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="option1">Option 1</label>
+                    <input type="text" id="option1" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="option2">Option 2</label>
+                    <input type="text" id="option2" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="option3">Option 3</label>
+                    <input type="text" id="option3" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="option4">Option 4</label>
+                    <input type="text" id="option4" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="correctOption">Correct Option (1-4)</label>
+                    <select id="correctOption" class="form-control" required>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                        <option value="4">Option 4</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn">Add Question</button>
+            </form>
+
+            <div id="questionsList" class="questions-list">
+                <h3>Existing Questions</h3>
+                <!-- Questions will be loaded here dynamically -->
+                <div id="questionsContainer"></div>
+            </div>
+        </section>
+    </main>
+
+    <div id="toast" class="toast"></div>
+
+    <footer>
+        <p>&copy; 2025 Quiz Application</p>
+    </footer>
+
+    <script src="js/firebase-config.js"></script>
+    <script src="js/cloudinaryConfig.js"></script>
+    <script src="js/pages/adminPanel.js"></script>
+</body>
+</html>
