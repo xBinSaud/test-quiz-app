@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.cloudinary.com; connect-src 'self' https://api.cloudinary.com https://*.cloudinary.com;">
+    <title>Quizzes - Quiz Application</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Available Quizzes</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="quizzes.html">Quizzes</a></li>
+                <li><a href="admin.html">Admin Panel</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="quiz-container">
+            <div id="quiz-selection">
+                <h2>Select a Quiz</h2>
+                <div id="quiz-list">
+                    <!-- Quiz list will be loaded dynamically -->
+                    <p>Loading quizzes...</p>
+                </div>
+            </div>
+
+            <div id="active-quiz" style="display: none;">
+                <h2 id="quiz-title">Quiz Title</h2>
+                <div id="question-container">
+                    <h3 id="question-text">Question text will appear here</h3>
+                    <div id="question-image-container" style="display: none;">
+                        <img id="question-image" class="question-image" alt="Question Image">
+                    </div>
+                    <ul id="options-list" class="options">
+                        <!-- Options will be loaded dynamically -->
+                    </ul>
+                </div>
+
+                <div id="quiz-controls">
+                    <button id="next-btn" class="btn">Next Question</button>
+                    <button id="finish-btn" class="btn" style="display: none;">Finish Quiz</button>
+                </div>
+
+                <div id="quiz-results" style="display: none;">
+                    <h3>Quiz Results</h3>
+                    <p>You scored <span id="score">0</span> out of <span id="total-questions">0</span></p>
+                    <button id="restart-btn" class="btn">Restart Quiz</button>
+                    <button id="back-to-list-btn" class="btn">Back to Quiz List</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="toast" class="toast"></div>
+
+    <footer>
+        <p>&copy; 2025 Quiz Application</p>
+    </footer>
+
+    <script src="js/firebase-config.js"></script>
+    <script src="js/cloudinaryConfig.js"></script>
+    <script src="js/pages/quizzes.js"></script>
+</body>
+</html>
